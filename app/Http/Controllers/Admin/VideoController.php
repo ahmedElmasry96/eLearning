@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 class VideoController extends Controller
 {
     use Upload;
+
+    public function __construct()
+    {
+        $this->middleware('can:show videos', ['only' => ['index']]);
+        $this->middleware('can:create video', ['only' => ['create', 'store']]);
+        $this->middleware('can:delete video', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

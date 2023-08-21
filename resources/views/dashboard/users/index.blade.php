@@ -44,8 +44,11 @@
 					<div class="card-header pb-0">
 						<div class="d-flex justify-content-between">
 							<h4 class="card-title mg-b-0">@lang('dashboard/sidebar.users')</h4>
-							<a href="{{route('users.create')}}">
-							<button class="btn btn-info btn-with-icon"><i class="typcn typcn-plus"></i>@lang('dashboard/users.add')</button></a>
+							@if(auth()->user()->can('create user'))
+								<a href="{{route('users.create')}}">
+									<button class="btn btn-info btn-with-icon"><i class="typcn typcn-plus"></i>@lang('dashboard/users.add')</button>
+								</a>
+							@endif
 						</div>
 					</div>
 					<div class="card-body">
@@ -72,15 +75,19 @@
 											<td>{{$user->age}}</td>
 											<td>{{$user->created_at->diffForHumans()}}</td>
 											<td>
-												<a href="{{route('users.edit', $user->id)}}">
-													<button class="btn btn-success btn-sm"><i class="typcn typcn-edit"></i></button>
-												</a>
-												<form method="POST" action="{{route('users.destroy', $user->id)}}" style="display: inline;">
-													@csrf
-													   {{method_field('DELETE')}}
-													   <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('{{trans("dashboard/app.confirm")}}')"><i class="ti-trash"></i></button>
-			   
-												   </form>
+												@if(auth()->user()->can('edit user'))
+													<a href="{{route('users.edit', $user->id)}}">
+														<button class="btn btn-success btn-sm"><i class="typcn typcn-edit"></i></button>
+													</a>
+												@endif
+												@if(auth()->user()->can('delete user'))
+													<form method="POST" action="{{route('users.destroy', $user->id)}}" style="display: 		inline;">
+														@csrf
+														{{method_field('DELETE')}}
+														<button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('{{trans("dashboard/app.confirm")}}')"><i class="ti-trash"></i></button>
+				
+													</form>
+												@endif
 											</td>
 										</tr>
 									@endforeach

@@ -44,8 +44,11 @@
 					<div class="card-header pb-0">
 						<div class="d-flex justify-content-between">
 							<h4 class="card-title mg-b-0">@lang('dashboard/sidebar.courses')</h4>
-							<a href="{{route('courses.create')}}">
-							<button class="btn btn-info btn-with-icon"><i class="typcn typcn-plus"></i>@lang('dashboard/courses.add')</button></a>
+							@if(auth()->user()->can('create course'))
+								<a href="{{route('courses.create')}}">
+									<button class="btn btn-info btn-with-icon"><i class="typcn typcn-plus"></i>@lang('dashboard/courses.add')</button>
+								</a>
+							@endif
 						</div>
 					</div>
 					<div class="card-body">
@@ -68,14 +71,18 @@
 											<td>{{$course->subCategory ? $course->subCategory->name : ""}}</td>
 											<td>{{$course->created_at->diffForHumans()}}</td>
 											<td>
-												<a href="{{route('courses.edit', $course->id)}}">
-													<button class="btn btn-success btn-sm"><i class="typcn typcn-edit"></i></button>
-												</a>
-												<form method="POST" action="{{route('courses.destroy', $course->id)}}" style="display: inline;">
-													@csrf
-													   {{method_field('DELETE')}}
-													   <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('{{trans("dashboard/app.confirm")}}')"><i class="ti-trash"></i></button>
-												</form>
+												@if(auth()->user()->can('edit course'))
+													<a href="{{route('courses.edit', $course->id)}}">
+														<button class="btn btn-success btn-sm"><i class="typcn typcn-edit"></i></button>
+													</a>
+												@endif
+												@if(auth()->user()->can('delete course'))
+													<form method="POST" action="{{route('courses.destroy', $course->id)}}" style="display: inline;">
+														@csrf
+														{{method_field('DELETE')}}
+														<button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('{{trans("dashboard/app.confirm")}}')"><i class="ti-trash"></i></button>
+													</form>
+												@endif
 											</td>
 										</tr>
 									@endforeach

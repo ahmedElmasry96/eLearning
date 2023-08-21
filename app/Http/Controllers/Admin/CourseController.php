@@ -15,6 +15,15 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     use Upload;
+
+    public function __construct()
+    {
+        $this->middleware('can:show courses', ['only' => ['index']]);
+        $this->middleware('can:create course', ['only' => ['create', 'store']]);
+        $this->middleware('can:edit course', ['only' => ['edit', 'update']]);
+        $this->middleware('can:delete course', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

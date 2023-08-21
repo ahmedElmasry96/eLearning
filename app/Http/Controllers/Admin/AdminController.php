@@ -15,6 +15,15 @@ use Spatie\Permission\Models\Role;
 class AdminController extends Controller
 {
     use Upload;
+
+    public function __construct()
+    {
+        $this->middleware('can:show admins', ['only' => ['index']]);
+        $this->middleware('can:create admin', ['only' => ['create', 'store']]);
+        $this->middleware('can:edit admin', ['only' => ['edit', 'update']]);
+        $this->middleware('can:delete admin', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -12,6 +12,14 @@ use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:show subCategories', ['only' => ['index']]);
+        $this->middleware('can:create subCategory', ['only' => ['create', 'store']]);
+        $this->middleware('can:edit subCategory', ['only' => ['edit', 'update']]);
+        $this->middleware('can:delete subCategory', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

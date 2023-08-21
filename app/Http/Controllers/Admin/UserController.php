@@ -10,6 +10,13 @@ use Exception;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:show users', ['only' => ['index']]);
+        $this->middleware('can:create user', ['only' => ['create', 'store']]);
+        $this->middleware('can:edit user', ['only' => ['edit', 'update']]);
+        $this->middleware('can:delete user', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      */

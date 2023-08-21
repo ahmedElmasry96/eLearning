@@ -44,8 +44,11 @@
 					<div class="card-header pb-0">
 						<div class="d-flex justify-content-between">
 							<h4 class="card-title mg-b-0">@lang('dashboard/sidebar.instructors')</h4>
-							<a href="{{route('instructors.create')}}">
-							<button class="btn btn-info btn-with-icon"><i class="typcn typcn-plus"></i>@lang('dashboard/instructors.add')</button></a>
+							@if(auth()->user()->can('create instructor'))
+								<a href="{{route('instructors.create')}}">
+									<button class="btn btn-info btn-with-icon"><i class="typcn typcn-plus"></i>@lang('dashboard/instructors.add')</button>
+								</a>
+							@endif
 						</div>
 					</div>
 					<div class="card-body">
@@ -78,15 +81,19 @@
 											<td><img src="{{url($instructor->image)}}"></td>
 											<td>{{$instructor->created_at->diffForHumans()}}</td>
 											<td>
-												<a href="{{route('instructors.edit', $instructor->id)}}">
-													<button class="btn btn-success btn-sm"><i class="typcn typcn-edit"></i></button>
-												</a>
-												<form method="POST" action="{{route('instructors.destroy', $instructor->id)}}" style="display: inline;">
-													@csrf
-													   {{method_field('DELETE')}}
-													   <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('{{trans("dashboard/app.confirm")}}')"><i class="ti-trash"></i></button>
-			   
-												</form>
+												@if(auth()->user()->can('edit instructor'))
+													<a href="{{route('instructors.edit', $instructor->id)}}">
+														<button class="btn btn-success btn-sm"><i class="typcn typcn-edit"></i></button>
+													</a>
+												@endif
+												@if(auth()->user()->can('delete instructor'))
+													<form method="POST" action="{{route('instructors.destroy', $instructor->id)}}" style="display: inline;">
+														@csrf
+														{{method_field('DELETE')}}
+														<button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('{{trans("dashboard/app.confirm")}}')"><i class="ti-trash"></i></button>
+				
+													</form>
+												@endif
 											</td>
 										</tr>
 									@endforeach

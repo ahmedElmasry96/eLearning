@@ -15,6 +15,15 @@ use Illuminate\Support\Facades\DB;
 class InstructorController extends Controller
 {
     use Upload;
+
+    public function __construct()
+    {
+        $this->middleware('can:show instructors', ['only' => ['index']]);
+        $this->middleware('can:create instructor', ['only' => ['create', 'store']]);
+        $this->middleware('can:edit instructor', ['only' => ['edit', 'update']]);
+        $this->middleware('can:delete instructor', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -44,8 +44,11 @@
 					<div class="card-header pb-0">
 						<div class="d-flex justify-content-between">
 							<h4 class="card-title mg-b-0">@lang('dashboard/sidebar.sub_cat')</h4>
-							<a href="{{route('subCategories.create')}}">
-							<button class="btn btn-info btn-with-icon"><i class="typcn typcn-plus"></i>@lang('dashboard/subCategories.add')</button></a>
+							@if(auth()->user()->can('create subCategory'))
+								<a href="{{route('subCategories.create')}}">
+									<button class="btn btn-info btn-with-icon"><i class="typcn typcn-plus"></i>@lang('dashboard/subCategories.add')</button>
+								</a>
+							@endif
 						</div>
 					</div>
 					<div class="card-body">
@@ -72,14 +75,18 @@
 											</td>
 											<td>{{$subCat->created_at->diffForHumans()}}</td>
 											<td>
+												@if(auth()->user()->can('edit subCategory'))
 												<a href="{{route('subCategories.edit', $subCat->id)}}">
 													<button class="btn btn-success btn-sm"><i class="typcn typcn-edit"></i></button>
 												</a>
+												@endif
+												@if(auth()->user()->can('delete subCategory'))
 												<form method="POST" action="{{route('subCategories.destroy', $subCat->id)}}" style="display: inline;">
 													@csrf
 													   {{method_field('DELETE')}}
 													   <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('{{trans("dashboard/app.confirm")}}')"><i class="ti-trash"></i></button>
 												</form>
+												@endif
 											</td>
 										</tr>
 									@endforeach

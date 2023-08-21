@@ -44,8 +44,11 @@
 					<div class="card-header pb-0">
 						<div class="d-flex justify-content-between">
 							<h4 class="card-title mg-b-0">@lang('dashboard/sidebar.roles')</h4>
-							<a href="{{route('roles.create')}}">
-							<button class="btn btn-info btn-with-icon"><i class="typcn typcn-plus"></i>@lang('dashboard/roles.add')</button></a>
+							@if(auth()->user()->can('create role'))
+								<a href="{{route('roles.create')}}">
+									<button class="btn btn-info btn-with-icon"><i class="typcn typcn-plus"></i>@lang('dashboard/roles.add')</button>
+								</a>
+							@endif
 						</div>
 					</div>
 					<div class="card-body">
@@ -66,14 +69,18 @@
 											<td>{{$role->name}}</td>
 											<td>{{$role->created_at->diffForHumans()}}</td>
 											<td>
-												<a href="{{route('roles.edit', $role->id)}}">
-													<button class="btn btn-success btn-sm"><i class="typcn typcn-edit"></i></button>
-												</a>
-												<form method="POST" action="{{route('roles.destroy', $role->id)}}" style="display: inline;">
-													@csrf
-													   {{method_field('DELETE')}}
-													   <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('{{trans("dashboard/app.confirm")}}')"><i class="ti-trash"></i></button>
-												</form>
+												@if(auth()->user()->can('edit role'))
+													<a href="{{route('roles.edit', $role->id)}}">
+														<button class="btn btn-success btn-sm"><i class="typcn typcn-edit"></i></button>
+													</a>
+												@endif
+												@if(auth()->user()->can('delete role'))
+													<form method="POST" action="{{route('roles.destroy', $role->id)}}" style="display: inline;">
+														@csrf
+														{{method_field('DELETE')}}
+														<button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('{{trans("dashboard/app.confirm")}}')"><i class="ti-trash"></i></button>
+													</form>
+												@endif
 											</td>
 										</tr>
 									@endforeach
