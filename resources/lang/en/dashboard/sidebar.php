@@ -15,4 +15,6 @@ return [
     'permissions' => 'Permissions',
     'permission-management' => 'Permissions Management',
     'roles' => 'Roles',
+    'website' => 'Website',
+    'slider' => 'Slider',
 ];

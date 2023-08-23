@@ -15,4 +15,6 @@ return [
     'permissions' => 'الصلاحيات',
     'permission-management' => 'إدارة الصلاحيات',
     'roles' => 'الأدوار',
+    'website' => 'الموقع',
+    'slider' => 'سليدر',
 ];
