@@ -19,4 +19,7 @@ return [
     'video' => 'فيديو',
     'choose_role' => 'اختر دور',
     'role' => 'الدور',
+    'title' => 'عنوان',
+    'slogan' => 'شعار',
+    'button-title' => 'عنوان الزر',
 ];

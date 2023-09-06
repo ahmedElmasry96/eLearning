@@ -1,9 +1,7 @@
 <?php
 
-use GuzzleHttp\Client;
+use App\Http\Controllers\Website\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('website.index');
-});
+Route::get('/', [HomeController::class, 'index'])->name('website.index');
 

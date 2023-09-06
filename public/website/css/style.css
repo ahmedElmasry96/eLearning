@@ -432,3 +432,12 @@
     padding-right: 0;
     border-right: none;
 }
+
+/* Start Customization */
+
+.owl-carousel-item img {
+    width: 1511px !important;
+    height: 850px !important;
+}
+
+/* End Customization */

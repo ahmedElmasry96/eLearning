@@ -19,4 +19,7 @@ return [
     'video' => 'Video',
     'choose_role' => 'Choose Role',
     'role' => 'Role',
+    'title' => 'Title',
+    'slogan' => 'Slogan',
+    'button-title' => 'Button Title',
 ];

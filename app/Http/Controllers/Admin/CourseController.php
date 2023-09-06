@@ -45,7 +45,7 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreVideoRequest $request)
+    public function store(StoreCourseRequest $request)
     {
         try {
             $course = Course::create([
