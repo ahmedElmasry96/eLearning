@@ -8,7 +8,6 @@ use App\Http\Requests\Dashboard\UpdateServiceRequest;
 use App\Models\Service;
 use App\Traits\Upload;
 use Exception;
-use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {

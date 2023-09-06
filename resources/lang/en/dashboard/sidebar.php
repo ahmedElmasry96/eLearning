@@ -18,4 +18,5 @@ return [
     'website' => 'Website',
     'slider' => 'Slider',
     'services' => 'Services',
+    'about' => 'About',
 ];

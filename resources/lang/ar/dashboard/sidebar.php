@@ -18,4 +18,5 @@ return [
     'website' => 'الموقع',
     'slider' => 'سليدر',
     'services' => 'الخدمات',
+    'about' => 'من نحن',
 ];

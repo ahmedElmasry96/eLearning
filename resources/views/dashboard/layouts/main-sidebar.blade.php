@@ -76,8 +76,11 @@
 								<li><a class="slide-item" href="{{route('sliders.index')}}">@lang('dashboard/sidebar.slider')</a></li>
 							@endif
 							@if(auth()->user()->can('show services'))
-							<li><a class="slide-item" href="{{route('services.index')}}">@lang('dashboard/sidebar.services')</a></li>
-						@endif
+								<li><a class="slide-item" href="{{route('services.index')}}">@lang('dashboard/sidebar.services')</a></li>
+							@endif
+							@if(auth()->user()->can('show about'))
+								<li><a class="slide-item" href="{{route('about.index')}}">@lang('dashboard/sidebar.about')</a></li>
+							@endif
 						</ul>
 					</li>
 				</ul>

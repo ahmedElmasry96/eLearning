@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CourseController;
@@ -34,6 +35,7 @@ Route::group(
             Route::resource('roles', RoleController::class);
             Route::resource('sliders', SliderController::class);
             Route::resource('services', ServiceController::class);
+            Route::resource('about', AboutController::class);
         });
         require __DIR__.'/auth.php';
     });
