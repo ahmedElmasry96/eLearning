@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InstructorController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UserController;
@@ -32,6 +33,7 @@ Route::group(
             Route::resource('permissions', PermissionController::class);
             Route::resource('roles', RoleController::class);
             Route::resource('sliders', SliderController::class);
+            Route::resource('services', ServiceController::class);
         });
         require __DIR__.'/auth.php';
     });

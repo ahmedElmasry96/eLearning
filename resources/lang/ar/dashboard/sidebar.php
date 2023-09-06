@@ -17,4 +17,5 @@ return [
     'roles' => 'الأدوار',
     'website' => 'الموقع',
     'slider' => 'سليدر',
+    'services' => 'الخدمات',
 ];

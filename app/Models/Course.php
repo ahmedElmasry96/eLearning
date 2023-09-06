@@ -12,7 +12,7 @@ class Course extends Model
     use Translatable;
 
     protected $fillable = ['name', 'description', 'image', 'sub_category_id'];
-    public $translatedAttributes = ['name', 'description', 'image', 'sub_category_id'];
+    public $translatedAttributes = ['name', 'description'];
 
     public function subCategory()
     {

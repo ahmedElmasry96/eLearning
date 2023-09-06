@@ -17,4 +17,5 @@ return [
     'roles' => 'Roles',
     'website' => 'Website',
     'slider' => 'Slider',
+    'services' => 'Services',
 ];

@@ -75,6 +75,9 @@
 							@if(auth()->user()->can('show sliders'))
 								<li><a class="slide-item" href="{{route('sliders.index')}}">@lang('dashboard/sidebar.slider')</a></li>
 							@endif
+							@if(auth()->user()->can('show services'))
+							<li><a class="slide-item" href="{{route('services.index')}}">@lang('dashboard/sidebar.services')</a></li>
+						@endif
 						</ul>
 					</li>
 				</ul>

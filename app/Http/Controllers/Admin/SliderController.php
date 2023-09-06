@@ -110,6 +110,16 @@ class SliderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $slider = Slider::findOrFail($id);
+            $path = 'sliders/' . $slider->id;
+            $this->removeImageFolder($path);
+            $slider->delete();
+            session()->flash('delete');
+            return redirect(route('sliders.index'));
+        } catch (Exception $e) {
+            session()->flash('error');
+            return redirect(route('sliders.index'));
+        }
     }
 }
