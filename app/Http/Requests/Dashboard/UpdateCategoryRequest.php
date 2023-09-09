@@ -4,7 +4,7 @@ namespace App\Http\Requests\Dashboard;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSubCategoryRequest extends FormRequest
+class UpdateCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,7 @@ class StoreSubCategoryRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'categories' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:5048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5048',
         ];
     }
 }

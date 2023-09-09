@@ -43,7 +43,7 @@
 				<div class="row">
 					<div class="col-md-10 col-lg-10 mx-auto col-xl-10 d-block">
 						<div class="card card-body pd-20 pd-md-40 border shadow-none">
-							<form method="post" action="{{route('subCategories.store')}}">
+							<form method="post" action="{{route('subCategories.store')}}" enctype="multipart/form-data">
 								@csrf
 								<div class="form-group">
 									<div class="row row-sm">
@@ -63,6 +63,17 @@
 											</select>
 											@if($errors->has('categories'))
 												<p class="text-danger">{{ $errors->first('categories') }}</p>
+											@endif
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row row-sm">
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.image')</label>
+											<input class="form-control pd-r-80" required type="file" name="image" value="{{old('image')}}">
+											@if($errors->has('image'))
+												<p class="text-danger">{{ $errors->first('image') }}</p>
 											@endif
 										</div>
 									</div>

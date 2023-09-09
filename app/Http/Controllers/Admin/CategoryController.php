@@ -5,10 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\StoreCategoryRequest;
 use App\Models\Category;
+use App\Models\CategorySubCategory;
+use App\Models\SubCategory;
+use App\Traits\Upload;
 use Exception;
 
 class CategoryController extends Controller
 {
+    use Upload;
+
     public function __construct()
     {
         $this->middleware('can:show categories', ['only' => ['index']]);
@@ -40,9 +45,15 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         try {
-            Category::create([
+            $category = Category::create([
                 'name' => $request->name,
             ]);
+            if ($request->image) {
+                $image = $this->uploadImage($request->image, 'categories/' . $category->id);
+                Category::findOrFail($category->id)->update([
+                    'image' => $image,
+                ]);
+            }
             session()->flash('add');
             return redirect(route('categories.index'));
         } catch (Exception $e) {
@@ -70,6 +81,14 @@ class CategoryController extends Controller
             $category->update([
                 'name' => $request->name,
             ]);
+
+            if ($request->image) {
+                $this->removeImage($category->image);
+                $image = $this->uploadImage($request->image, 'categories/' . $category->id);
+                $category->update([
+                    'image' => $image,
+                ]);
+            }
     
             session()->flash('edit');
             return redirect(route('categories.index'));
@@ -86,6 +105,18 @@ class CategoryController extends Controller
     {
         try {
             $category = Category::findOrFail($id);
+            $subCats_ids = CategorySubCategory::where('category_id', $category->id)->pluck('sub_category_id')->toArray();
+            $subCats = SubCategory::all();
+            foreach($subCats as $cat) {
+                if (in_array($cat->id, $subCats_ids)) {
+                    $path = 'subCategories/' . $cat->id;
+                    $this->removeImageFolder($path);        
+                    SubCategory::findOrFail($cat->id)->delete();
+                }
+            }
+            $path = 'categories/' . $category->id;
+            $this->removeImageFolder($path);
+
             $category->delete();
             session()->flash('delete');
             return redirect(route('categories.index'));

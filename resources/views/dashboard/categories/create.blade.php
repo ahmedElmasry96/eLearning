@@ -42,7 +42,7 @@
 				<div class="row">
 					<div class="col-md-10 col-lg-10 mx-auto col-xl-10 d-block">
 						<div class="card card-body pd-20 pd-md-40 border shadow-none">
-							<form method="post" action="{{route('categories.store')}}">
+							<form method="post" action="{{route('categories.store')}}" enctype="multipart/form-data">
 								@csrf
 								<div class="form-group">
 									<div class="row row-sm">
@@ -50,6 +50,13 @@
 											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.name')</label> <input class="form-control" required type="text" name="name" value="{{old('name')}}">
 											@if($errors->has('name'))
 												<p class="text-danger">{{ $errors->first('name') }}</p>
+											@endif
+										</div>
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.image')</label>
+											<input class="form-control pd-r-80" required type="file" name="image" value="{{old('image')}}">
+											@if($errors->has('image'))
+												<p class="text-danger">{{ $errors->first('image') }}</p>
 											@endif
 										</div>
 									</div>

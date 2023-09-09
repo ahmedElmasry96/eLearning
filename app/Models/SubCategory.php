@@ -11,7 +11,7 @@ class SubCategory extends Model
     use HasFactory;
     use Translatable;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'image'];
     public $translatedAttributes = ['name'];
 
     public function categories()

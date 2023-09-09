@@ -42,7 +42,7 @@
 				<div class="row">
 					<div class="col-md-10 col-lg-10 mx-auto col-xl-10 d-block">
 						<div class="card card-body pd-20 pd-md-40 border shadow-none">
-							<form method="post" action="{{route('subCategories.update', $subCategory->id)}}">
+							<form method="post" action="{{route('subCategories.update', $subCategory->id)}}" enctype="multipart/form-data">
 								@csrf
 								{{method_field('PUT')}}
 								<div class="form-group">
@@ -66,6 +66,20 @@
 											</select>
 											@if($errors->has('categories'))
 												<p class="text-danger">{{ $errors->first('categories') }}</p>
+											@endif
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row row-sm">
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.image')</label>
+											<input class="form-control pd-r-80" type="file" name="image" value="{{old('image')}}">
+											@if($subCategory->image)
+												<img class="mt-3" src="{{url($subCategory->image)}}" alt="subCategory image" width="150" height="150">
+											@endif
+											@if($errors->has('image'))
+												<p class="text-danger">{{ $errors->first('image') }}</p>
 											@endif
 										</div>
 									</div>

@@ -42,7 +42,7 @@
 				<div class="row">
 					<div class="col-md-10 col-lg-10 mx-auto col-xl-10 d-block">
 						<div class="card card-body pd-20 pd-md-40 border shadow-none">
-							<form method="post" action="{{route('categories.update', $category->id)}}">
+							<form method="post" action="{{route('categories.update', $category->id)}}" enctype="multipart/form-data">
 								@csrf
 								{{method_field('PUT')}}
 								<div class="form-group">
@@ -51,6 +51,16 @@
 											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.name')</label> <input class="form-control" required type="text" name="name" value="{{$category->name}}">
 											@if($errors->has('name'))
 												<p class="text-danger">{{ $errors->first('name') }}</p>
+											@endif
+										</div>
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.image')</label>
+											<input class="form-control pd-r-80" type="file" name="image" value="{{old('image')}}">
+											@if($category->image)
+												<img class="mt-3" src="{{url($category->image)}}" alt="category image" width="150" height="150">
+											@endif
+											@if($errors->has('image'))
+												<p class="text-danger">{{ $errors->first('image') }}</p>
 											@endif
 										</div>
 									</div>

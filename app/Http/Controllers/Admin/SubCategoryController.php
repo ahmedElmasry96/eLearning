@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\StoreSubCategoryRequest;
 use App\Models\Category;
-use App\Models\CategorySubCategory;
 use App\Models\SubCategory;
+use App\Traits\Upload;
 use Exception;
-use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
 {
+    use Upload;
+    
     public function __construct()
     {
         $this->middleware('can:show subCategories', ['only' => ['index']]);
@@ -48,6 +49,12 @@ class SubCategoryController extends Controller
                 'name' => $request->name,
             ]);
             $subCat->categories()->attach($request->categories);
+            if ($request->image) {
+                $image = $this->uploadImage($request->image, 'subCategories/' . $subCat->id);
+                SubCategory::findOrFail($subCat->id)->update([
+                    'image' => $image,
+                ]);
+            }
             session()->flash('add');
             return redirect(route('subCategories.index'));
         } catch (Exception $e) {
@@ -79,6 +86,14 @@ class SubCategoryController extends Controller
                 'name' => $request->name,
             ]);
             $subCat->categories()->sync($request->categories);
+            if ($request->image) {
+                $this->removeImage($subCat->image);
+                $image = $this->uploadImage($request->image, 'subCategories/' . $subCat->id);
+                $subCat->update([
+                    'image' => $image,
+                ]);
+            }
+    
             session()->flash('add');
             return redirect(route('subCategories.index'));
         } catch (Exception $e) {
