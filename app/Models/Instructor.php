@@ -9,9 +9,10 @@ class Instructor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'email', 'password', 'phone', 'age', 'image'];
+    protected $fillable = ['name', 'email', 'password', 'phone', 'age', 'image', 'title', 'description'];
 
-    public function subCategories() {
-        return $this->belongsToMany(SubCategory::class, 'sub_category_instructors');
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
     }
 }

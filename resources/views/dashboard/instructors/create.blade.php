@@ -89,21 +89,26 @@
 								<div class="form-group">
 									<div class="row row-sm">
 										<div class="col-sm-6">
-											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/sidebar.sub_cat')</label>
-											<select class="form-control basic-multiple" name="subCategories[]" multiple="multiple" required>
-												@foreach($subCategories as $subCategory)
-													<option value="{{$subCategory->id}}">{{$subCategory->name}}</option>
-												@endforeach
-											</select>
-											@if($errors->has('subCategory'))
-												<p class="text-danger">{{ $errors->first('subCategory') }}</p>
-											@endif
-										</div>
-										<div class="col-sm-6">
 											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.image')</label>
 											<input class="form-control pd-r-80" required type="file" name="image" value="{{old('image')}}">
 											@if($errors->has('image'))
 												<p class="text-danger">{{ $errors->first('image') }}</p>
+											@endif
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row row-sm">
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.instructor_title')</label> <input class="form-control" required type="text" name="title" value="{{old('title')}}">
+											@if($errors->has('title'))
+												<p class="text-danger">{{ $errors->first('title') }}</p>
+											@endif
+										</div>
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.description')</label> <textarea class="form-control" name="description">{{old('description')}}</textarea>
+											@if($errors->has('description'))
+												<p class="text-danger">{{ $errors->first('description') }}</p>
 											@endif
 										</div>
 									</div>

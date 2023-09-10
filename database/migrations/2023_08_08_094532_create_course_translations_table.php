@@ -19,8 +19,6 @@ return new class extends Migration
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');     
             $table->string('name');
             $table->text('description');
-            $table->string('image')->nullable();
-            $table->foreignId('sub_category_id')->references('id')->on('sub_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

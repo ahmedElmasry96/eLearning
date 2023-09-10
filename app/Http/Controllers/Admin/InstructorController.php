@@ -6,10 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\StoreInstructorRequest;
 use App\Http\Requests\Dashboard\UpdateInstructorRequest;
 use App\Models\Instructor;
-use App\Models\SubCategory;
 use App\Traits\Upload;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class InstructorController extends Controller
@@ -38,8 +36,7 @@ class InstructorController extends Controller
      */
     public function create()
     {
-        $subCategories = SubCategory::all();
-        return view('dashboard.instructors.create', compact('subCategories'));
+        return view('dashboard.instructors.create');
     }
 
     /**
@@ -55,8 +52,10 @@ class InstructorController extends Controller
                 'phone' => $request->phone,
                 'password' => bcrypt($request->password),
                 'age' => $request->age,
+                'title' => $request->title,
+                'description' => $request->description
             ]);
-            $instructor->subCategories()->attach($request->subCategories);
+
             $image = $this->uploadImage($request->image, 'instructors/' . $instructor->id);
             Instructor::findOrFail($instructor->id)->update([
                 'image' => $image,
@@ -77,8 +76,7 @@ class InstructorController extends Controller
     public function edit(string $id)
     {
         $instructor = Instructor::findOrFail($id);
-        $subCategories = SubCategory::all();
-        return view('dashboard.instructors.edit', compact('instructor', 'subCategories'));
+        return view('dashboard.instructors.edit', compact('instructor'));
     }
 
     /**
@@ -94,6 +92,8 @@ class InstructorController extends Controller
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'age' => $request->age,
+                'title' => $request->title,
+                'description' => $request->description,
             ]);
     
             if ($request->password) {
@@ -109,7 +109,6 @@ class InstructorController extends Controller
                     'image' => $image,
                 ]);
             }
-            $instructor->subCategories()->sync($request->subCategories);
 
             DB::commit();
             session()->flash('edit');

@@ -58,7 +58,8 @@
 									<tr>
 										<th class="wd-15p border-bottom-0">#</th>
 										<th class="wd-15p border-bottom-0">@lang('dashboard/app.name')</th>
-										<th class="wd-15p border-bottom-0">@lang('dashboard/sidebar.sub_cat')</th>
+										<th class="wd-15p border-bottom-0">@lang('dashboard/sidebar.categories')</th>
+										<th class="wd-15p border-bottom-0">@lang('dashboard/sidebar.instructors')</th>
 										<th class="wd-25p border-bottom-0">@lang('dashboard/app.created_at')</th>
 										<th class="wd-25p border-bottom-0">@lang('dashboard/app.actions')</th>
 									</tr>
@@ -68,7 +69,8 @@
 										<tr>
 											<td>{{$index + 1}}</td>
 											<td>{{$course->name}}</td>
-											<td>{{$course->subCategory ? $course->subCategory->name : ""}}</td>
+											<td>{{$course->category ? $course->category->name : ""}}</td>
+											<td>{{$course->instructor ? $course->instructor->name : ""}}</td>
 											<td>{{$course->created_at->diffForHumans()}}</td>
 											<td>
 												@if(auth()->user()->can('edit course'))

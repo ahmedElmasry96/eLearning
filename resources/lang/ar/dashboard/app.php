@@ -13,7 +13,8 @@ return [
     'confirm' => 'هل انت متأكد انك تريد حذف هذا العنصر ؟ ',
     'choose_cats' => 'اختار تصنيف او اكثر',
     'image' => 'صورة', 
-    'choose_sub_cat' => "اختار خدمة فرعية",
+    'choose_cat' => "اختار اتصنيف",
+    'choose_instructor' => "اختر مدرس",
     'description' => 'وصف',
     'choose_course' => 'اختار كورس',
     'video' => 'فيديو',
@@ -22,4 +23,5 @@ return [
     'title' => 'عنوان',
     'slogan' => 'شعار',
     'button-title' => 'عنوان الزر',
+    'instructor_title' => 'التخصص',
 ];

@@ -11,12 +11,17 @@ class Course extends Model
     use HasFactory;
     use Translatable;
 
-    protected $fillable = ['name', 'description', 'image', 'sub_category_id'];
+    protected $fillable = ['name', 'description', 'image', 'category_id', 'instructor_id'];
     public $translatedAttributes = ['name', 'description'];
 
-    public function subCategory()
+    public function category()
     {
-        return $this->belongsTo(SubCategory::class);
+        return $this->belongsTo(Category::class);
+    }
+
+    public function instructor()
+    {
+        return $this->belongsTo(Instructor::class);
     }
 
     public function videos() {

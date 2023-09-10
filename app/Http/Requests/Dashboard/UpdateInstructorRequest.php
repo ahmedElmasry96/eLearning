@@ -29,7 +29,8 @@ class UpdateInstructorRequest extends FormRequest
             'phone' => ['required', 'numeric', Rule::unique('instructors')->ignore($this->instructor), 'digits:11'],
             'age' => 'numeric|nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5048',
-            'subCategories' => 'required',
+            'title' => 'required',
+            'description' => 'nullable',
         ];
     }
 }

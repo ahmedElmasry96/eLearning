@@ -13,7 +13,8 @@ return [
     'confirm' => 'Are you sure you want to delete this item ?',
     'choose_cats' => 'Choose one or more from categories',
     'image' => 'Image', 
-    'choose_sub_cat' => "Select Sub Category",
+    'choose_cat' => "Select Category",
+    'choose_instructor' => "Select Instructor",
     'description' => 'Description',
     'choose_course' => 'Choose course',
     'video' => 'Video',
@@ -22,4 +23,5 @@ return [
     'title' => 'Title',
     'slogan' => 'Slogan',
     'button-title' => 'Button Title',
+    'instructor_title' => 'Major',
 ];

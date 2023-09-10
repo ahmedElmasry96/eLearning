@@ -14,8 +14,8 @@ class Category extends Model
     protected $fillable = ['name', 'image'];
     public $translatedAttributes = ['name'];
 
-    public function subCategories()
+    public function courses()
     {
-        return $this->belongsToMany(SubCategory::class, 'category_sub_categories');
+        return $this->hasMany(Course::class);
     }
 }

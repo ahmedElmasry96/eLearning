@@ -28,7 +28,8 @@ class StoreInstructorRequest extends FormRequest
             'phone' => 'required|numeric|unique:instructors|digits:11',
             'age' => 'numeric|nullable',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:5048',
-            'subCategories' => 'required',
+            'title' => 'required',
+            'description' => 'nullable',
         ];
     }
 }

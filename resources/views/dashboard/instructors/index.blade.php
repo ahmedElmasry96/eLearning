@@ -60,7 +60,7 @@
 										<th class="wd-15p border-bottom-0">@lang('dashboard/app.name')</th>
 										<th class="wd-20p border-bottom-0">@lang('dashboard/app.email')</th>
 										<th class="wd-15p border-bottom-0">@lang('dashboard/app.phone')</th>
-										<th class="wd-10p border-bottom-0">@lang('dashboard/sidebar.categories')</th>
+										<th class="wd-10p border-bottom-0">@lang('dashboard/app.instructor_title')</th>
 										<th class="wd-10p border-bottom-0">@lang('dashboard/app.image')</th>
 										<th class="wd-25p border-bottom-0">@lang('dashboard/app.created_at')</th>
 										<th class="wd-25p border-bottom-0">@lang('dashboard/app.actions')</th>
@@ -73,11 +73,7 @@
 											<td>{{$instructor->name}}</td>
 											<td>{{$instructor->email}}</td>
 											<td>{{$instructor->phone}}</td>
-											<td>
-												@foreach($instructor->subCategories as $index => $subCategory)
-												{{$index== 0 ? '' : ' - '}} {{$subCategory->name}}
-												@endforeach
-											</td>
+											<td>{{$instructor->title}}</td>
 											<td><img src="{{url($instructor->image)}}"></td>
 											<td>{{$instructor->created_at->diffForHumans()}}</td>
 											<td>

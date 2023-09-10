@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\StoreCategoryRequest;
+use App\Http\Requests\Dashboard\UpdateCategoryRequest;
 use App\Models\Category;
 use App\Models\CategorySubCategory;
 use App\Models\SubCategory;
@@ -74,7 +75,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreCategoryRequest $request, string $id)
+    public function update(UpdateCategoryRequest $request, string $id)
     {
         try {
             $category = Category::findOrFail($id);

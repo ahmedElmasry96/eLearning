@@ -99,19 +99,20 @@
 												<p class="text-danger">{{ $errors->first('image') }}</p>
 											@endif
 										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row row-sm">
 										<div class="col-sm-6">
-											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/sidebar.subCategories')</label>
-											<select class="form-control basic-multiple" name="subCategories[]" multiple="multiple">
-												@foreach($subCategories as $subCategory)
-													<option value="{{$subCategory->id}}"
-														@foreach($instructor->subCategories as $cat)
-															@if($cat->id == $subCategory->id) selected @endif
-														@endforeach
-														>{{$subCategory->name}}</option>
-												@endforeach
-											</select>
-											@if($errors->has('subCategories'))
-												<p class="text-danger">{{ $errors->first('subCategories') }}</p>
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.instructor_title')</label> <input class="form-control" required type="text" name="title" value="{{$instructor->title}}">
+											@if($errors->has('title'))
+												<p class="text-danger">{{ $errors->first('title') }}</p>
+											@endif
+										</div>
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.description')</label> <textarea class="form-control" name="description">{{$instructor->description}}</textarea>
+											@if($errors->has('description'))
+												<p class="text-danger">{{ $errors->first('description') }}</p>
 											@endif
 										</div>
 									</div>

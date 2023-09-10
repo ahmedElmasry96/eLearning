@@ -24,7 +24,8 @@ class UpdateCourseRequest extends FormRequest
         return [
             'name' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5048',
-            'subCategory' => 'required',
+            'category' => 'required|exists:categories,id',
+            'instructor' => 'required|exists:instructors,id',
         ];
     }
 }

@@ -53,19 +53,6 @@
 												<p class="text-danger">{{ $errors->first('name') }}</p>
 											@endif
 										</div>
-										<div class="col-sm-6">
-											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/sidebar.sub_cat')</label>
-											<select class="form-control" name="subCategory">
-												@foreach($subCategories as $subCat)
-													<option value="{{$subCat->id}}"
-														@if($course->sub_category_id == $subCat->id) selected @endif
-														>{{$subCat->name}}</option>
-												@endforeach
-											</select>
-											@if($errors->has('subCategory'))
-												<p class="text-danger">{{ $errors->first('subCategory') }}</p>
-											@endif
-										</div>
 									</div>
 								</div>
 								<div class="form-group">
@@ -85,6 +72,36 @@
 											@endif
 											@if($errors->has('image'))
 												<p class="text-danger">{{ $errors->first('image') }}</p>
+											@endif
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row row-sm">
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/sidebar.categories')</label>
+											<select class="form-control" name="category">
+												@foreach($categories as $cat)
+													<option value="{{$cat->id}}"
+														@if($course->category_id == $cat->id) selected @endif
+														>{{$cat->name}}</option>
+												@endforeach
+											</select>
+											@if($errors->has('category'))
+												<p class="text-danger">{{ $errors->first('category') }}</p>
+											@endif
+										</div>
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/sidebar.instructors')</label>
+											<select class="form-control" name="instructor">
+												@foreach($instructors as $instructor)
+													<option value="{{$instructor->id}}"
+														@if($course->instructor_id == $instructor->id) selected @endif
+														>{{$instructor->name}}</option>
+												@endforeach
+											</select>
+											@if($errors->has('instructors'))
+												<p class="text-danger">{{ $errors->first('instructors') }}</p>
 											@endif
 										</div>
 									</div>

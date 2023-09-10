@@ -4,13 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\StoreCourseRequest;
-use App\Http\Requests\Dashboard\StoreVideoRequest;
 use App\Http\Requests\Dashboard\UpdateCourseRequest;
+use App\Models\Category;
 use App\Models\Course;
-use App\Models\SubCategory;
+use App\Models\Instructor;
 use App\Traits\Upload;
 use Exception;
-use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
@@ -38,8 +37,9 @@ class CourseController extends Controller
      */
     public function create()
     {
-        $subCategories = SubCategory::all();
-        return view('dashboard.courses.create', compact('subCategories'));
+        $categories = Category::all();
+        $instructors = Instructor::all();
+        return view('dashboard.courses.create', compact('categories', 'instructors'));
     }
 
     /**
@@ -51,7 +51,8 @@ class CourseController extends Controller
             $course = Course::create([
                 'name' => $request->name,
                 'description' => $request->description,
-                'sub_category_id' => $request->subCategory,
+                'category_id' => $request->category,
+                'instructor_id' => $request->instructor,
             ]);
 
             if ($request->image) {
@@ -63,6 +64,7 @@ class CourseController extends Controller
             session()->flash('add');
             return redirect(route('courses.index'));
         } catch (Exception $e) {
+            return $e->getMessage();
             session()->flash('error');
             return redirect(route('courses.index'));
         }
@@ -74,8 +76,9 @@ class CourseController extends Controller
     public function edit(string $id)
     {
         $course = Course::findOrFail($id);
-        $subCategories = SubCategory::all();
-        return view('dashboard.courses.edit', compact('course', 'subCategories'));
+        $categories = category::all();
+        $instructors = Instructor::all();
+        return view('dashboard.courses.edit', compact('course', 'categories', 'instructors'));
     }
 
     /**
@@ -88,7 +91,8 @@ class CourseController extends Controller
             $course->update([
                 'name' => $request->name,
                 'description' => $request->description,
-                'sub_category_id' => $request->subCategory,
+                'category_id' => $request->category,
+                'instructor_id' => $request->instructor,
             ]);
 
             if ($request->image) {

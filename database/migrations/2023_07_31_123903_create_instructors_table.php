@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('phone');
             $table->integer('age')->nullable();
             $table->string('image')->nullable();
+            $table->string('title');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

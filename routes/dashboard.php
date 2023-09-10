@@ -10,7 +10,6 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +26,6 @@ Route::group(
             Route::resource('users', UserController::class);
             Route::resource('admins', AdminController::class);
             Route::resource('categories', CategoryController::class);
-            Route::resource('subCategories', SubCategoryController::class);
             Route::resource('instructors', InstructorController::class);
             Route::resource('courses', CourseController::class);
             Route::resource('videos', VideoController::class);

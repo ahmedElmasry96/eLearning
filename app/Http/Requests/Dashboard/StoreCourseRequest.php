@@ -24,7 +24,8 @@ class StoreCourseRequest extends FormRequest
         return [
             'name' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:5048',
-            'subCategory' => 'required',
+            'category' => 'required|exists:categories,id',
+            'instructor' => 'required|exists:instructors,id',
         ];
     }
 }

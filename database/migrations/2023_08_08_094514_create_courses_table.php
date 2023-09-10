@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->string('image')->nullable();
+            $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreignId('instructor_id')->references('id')->on('instructors')->onDelete('cascade');
             $table->timestamps();
         });
     }
