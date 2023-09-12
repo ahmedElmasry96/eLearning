@@ -53,7 +53,10 @@ class InstructorController extends Controller
                 'password' => bcrypt($request->password),
                 'age' => $request->age,
                 'title' => $request->title,
-                'description' => $request->description
+                'description' => $request->description,
+                'facebook' => $request->facebook,
+                'twitter' => $request->twitter,
+                'instagram' => $request->instagram,
             ]);
 
             $image = $this->uploadImage($request->image, 'instructors/' . $instructor->id);
@@ -94,6 +97,9 @@ class InstructorController extends Controller
                 'age' => $request->age,
                 'title' => $request->title,
                 'description' => $request->description,
+                'facebook' => $request->facebook,
+                'twitter' => $request->twitter,
+                'instagram' => $request->instagram,
             ]);
     
             if ($request->password) {

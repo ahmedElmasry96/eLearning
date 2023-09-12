@@ -89,6 +89,31 @@
 								<div class="form-group">
 									<div class="row row-sm">
 										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.facebook')</label>
+											<input class="form-control pd-r-80" type="text" name="facebook" value="{{old('facebook')}}">
+											@if($errors->has('facebook'))
+												<p class="text-danger">{{ $errors->first('facebook') }}</p>
+											@endif
+										</div>
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.twitter')</label>
+											<input class="form-control pd-r-80" type="text" name="twitter" value="{{old('twitter')}}">
+											@if($errors->has('twitter'))
+												<p class="text-danger">{{ $errors->first('twitter') }}</p>
+											@endif
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row row-sm">
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.instagram')</label>
+											<input class="form-control pd-r-80" type="text" name="instagram" value="{{old('instagram')}}">
+											@if($errors->has('instagram'))
+												<p class="text-danger">{{ $errors->first('instagram') }}</p>
+											@endif
+										</div>
+										<div class="col-sm-6">
 											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.image')</label>
 											<input class="form-control pd-r-80" required type="file" name="image" value="{{old('image')}}">
 											@if($errors->has('image'))

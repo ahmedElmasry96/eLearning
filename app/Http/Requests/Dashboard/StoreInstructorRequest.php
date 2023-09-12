@@ -30,6 +30,9 @@ class StoreInstructorRequest extends FormRequest
             'image' => 'required|image|mimes:jpeg,png,jpg|max:5048',
             'title' => 'required',
             'description' => 'nullable',
+            'facebook' => 'nullable|url|regex:/http(?:s):\/\/(?:www\.)facebook\.com\/.+/i',
+            'twitter' => 'nullable|url|regex:/http(?:s):\/\/(?:www\.)twitter\.com\/.+/i',
+            'instagram' => 'nullable|url|regex:/http(?:s):\/\/(?:www\.)instagram\.com\/.+/i',
         ];
     }
 }

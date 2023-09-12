@@ -26,4 +26,7 @@ return [
     'instructor_title' => 'Major',
     'price' => 'Price',
     'hours' => 'Hours',
+    'facebook' => 'Facebook',
+    'twitter' => 'Twitter',
+    'instagram' => 'Instagram',
 ];

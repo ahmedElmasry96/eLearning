@@ -26,4 +26,7 @@ return [
     'instructor_title' => 'التخصص',
     'price' => 'السعر',
     'hours' => 'عدد الساعات',
+    'facebook' => 'فيسبوك',
+    'twitter' => 'تويتر',
+    'instagram' => 'انستجرام',
 ];

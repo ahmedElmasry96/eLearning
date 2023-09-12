@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('title');
             $table->text('description')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
             $table->timestamps();
         });
     }
