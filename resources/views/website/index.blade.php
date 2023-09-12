@@ -57,7 +57,8 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
                     <h1 class="mb-4">{{$about->title}}</h1>
-                    <p class="mb-4">{{$about->description}}</p>
+                    <p class="mb-4">{{substr($about->description, 0, 300)}}...</p>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
                 </div>
             </div>
         </div>
