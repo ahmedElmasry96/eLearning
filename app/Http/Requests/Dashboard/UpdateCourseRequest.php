@@ -26,6 +26,8 @@ class UpdateCourseRequest extends FormRequest
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5048',
             'category' => 'required|exists:categories,id',
             'instructor' => 'required|exists:instructors,id',
+            'price' => 'required|numeric',
+            'hours' => 'required|regex:/^\d*\.\d{0,2}$/',
         ];
     }
 }

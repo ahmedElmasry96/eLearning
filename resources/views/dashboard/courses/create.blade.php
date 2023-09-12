@@ -50,15 +50,22 @@
 												<p class="text-danger">{{ $errors->first('name') }}</p>
 											@endif
 										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="row row-sm">
 										<div class="col-sm-6">
 											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.description')</label> 
 											<textarea class="form-control" required name="description">{{old('description')}}</textarea>
 											@if($errors->has('description'))
 												<p class="text-danger">{{ $errors->first('description') }}</p>
+											@endif
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row row-sm">
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.price') $</label> 
+											<input class="form-control" type="number" required name="price" value="{{old('price')}}">
+											@if($errors->has('price'))
+												<p class="text-danger">{{ $errors->first('price') }}</p>
 											@endif
 										</div>
 										<div class="col-sm-6">
@@ -94,6 +101,17 @@
 											</select>
 											@if($errors->has('instructor'))
 												<p class="text-danger">{{ $errors->first('instructor') }}</p>
+											@endif
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row row-sm">
+										<div class="col-sm-6">
+											<label class="main-content-label tx-11 tx-medium tx-gray-600">@lang('dashboard/app.hours') $</label> 
+											<input class="form-control" type="text" required name="hours" value="{{old('hours')}}">
+											@if($errors->has('hours'))
+												<p class="text-danger">{{ $errors->first('hours') }}</p>
 											@endif
 										</div>
 									</div>

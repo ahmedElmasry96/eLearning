@@ -24,4 +24,6 @@ return [
     'slogan' => 'شعار',
     'button-title' => 'عنوان الزر',
     'instructor_title' => 'التخصص',
+    'price' => 'السعر',
+    'hours' => 'عدد الساعات',
 ];

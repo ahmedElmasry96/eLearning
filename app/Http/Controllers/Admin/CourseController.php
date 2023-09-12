@@ -53,6 +53,8 @@ class CourseController extends Controller
                 'description' => $request->description,
                 'category_id' => $request->category,
                 'instructor_id' => $request->instructor,
+                'price' => $request->price,
+                'hours' => $request->hours,
             ]);
 
             if ($request->image) {
@@ -93,6 +95,8 @@ class CourseController extends Controller
                 'description' => $request->description,
                 'category_id' => $request->category,
                 'instructor_id' => $request->instructor,
+                'price' => $request->price,
+                'hours' => $request->hours,
             ]);
 
             if ($request->image) {

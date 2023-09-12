@@ -24,4 +24,6 @@ return [
     'slogan' => 'Slogan',
     'button-title' => 'Button Title',
     'instructor_title' => 'Major',
+    'price' => 'Price',
+    'hours' => 'Hours',
 ];

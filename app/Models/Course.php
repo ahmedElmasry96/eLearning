@@ -11,7 +11,7 @@ class Course extends Model
     use HasFactory;
     use Translatable;
 
-    protected $fillable = ['name', 'description', 'image', 'category_id', 'instructor_id'];
+    protected $fillable = ['name', 'description', 'image', 'category_id', 'instructor_id', 'price', 'students_number'];
     public $translatedAttributes = ['name', 'description'];
 
     public function category()
