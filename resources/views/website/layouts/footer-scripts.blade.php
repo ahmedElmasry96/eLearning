@@ -8,3 +8,4 @@
 
 <!-- Template Javascript -->
 <script src="{{asset('website/js/main.js')}}"></script>
+@yield('js')
