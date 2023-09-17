@@ -1,7 +1,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
+            <img src="{{url(getWebsiteInfo()['logo'])}}" width="50" height="50" alt="logo" style="margin: 0 10px"><h2 class="m-0 text-primary">{{getWebsiteInfo()['website_name']}}</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
                 <a href="{{route('website.about')}}" class="nav-item nav-link">About</a>
                 <a href="{{route('website.courses')}}" class="nav-item nav-link">Courses</a>
                 <a href="{{route('website.instructors')}}" class="nav-item nav-link">Instructors</a>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="{{route('website.contact')}}" class="nav-item nav-link">Contact</a>
             </div>
             <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>

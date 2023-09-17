@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\InstructorController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
@@ -34,6 +35,7 @@ Route::group(
             Route::resource('sliders', SliderController::class);
             Route::resource('services', ServiceController::class);
             Route::resource('about', AboutController::class);
+            Route::resource('settings', SettingController::class);
         });
         require __DIR__.'/auth.php';
     });

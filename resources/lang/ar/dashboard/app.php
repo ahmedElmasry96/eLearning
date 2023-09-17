@@ -29,4 +29,10 @@ return [
     'facebook' => 'فيسبوك',
     'twitter' => 'تويتر',
     'instagram' => 'انستجرام',
+    'youtube' => 'يوتيوب',
+    'linkedin' => 'لينكدان',
+    'website_name' => 'اسم الموقع',
+    'logo' => 'شعار الموقع',
+    'address' => 'العنوان',
+    'copyright' => 'الحقوق المحفوظة',
 ];

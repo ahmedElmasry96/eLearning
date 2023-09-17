@@ -19,4 +19,5 @@ return [
     'slider' => 'سليدر',
     'services' => 'الخدمات',
     'about' => 'من نحن',
+    'settings' => 'الإعدادت',
 ];

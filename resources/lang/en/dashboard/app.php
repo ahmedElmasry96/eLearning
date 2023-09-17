@@ -29,4 +29,10 @@ return [
     'facebook' => 'Facebook',
     'twitter' => 'Twitter',
     'instagram' => 'Instagram',
+    'youtube' => 'Youtube',
+    'linkedin' => 'LinkedIn',
+    'website_name' => 'Website Name',
+    'logo' => 'Logo',
+    'address' => 'Address',
+    'copyright' => 'Copyright',
 ];

@@ -73,6 +73,9 @@
 							@if(auth()->user()->can('show about'))
 								<li><a class="slide-item" href="{{route('about.index')}}">@lang('dashboard/sidebar.about')</a></li>
 							@endif
+							@if(auth()->user()->can('show settings'))
+							<li><a class="slide-item" href="{{route('settings.index')}}">@lang('dashboard/sidebar.settings')</a></li>
+						@endif
 						</ul>
 					</li>
 				</ul>

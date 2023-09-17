@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Website\AboutController;
+use App\Http\Controllers\Website\ContactController;
 use App\Http\Controllers\Website\CourseController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\InstructorController;
@@ -17,6 +18,8 @@ Route::group(
         Route::get('/courses', [CourseController::class, 'courses'])->name('website.courses');
         Route::get('/courses/search', [CourseController::class, 'search'])->name('website.courses.search');
         Route::get('/instructors', [InstructorController::class, 'instructors'])->name('website.instructors');
+        Route::get('/contact', [ContactController::class, 'contact'])->name('website.contact');
+        Route::post('/send-mail', [ContactController::class, 'sendMail'])->name('website.contact.sendEmail');
     });
 
 

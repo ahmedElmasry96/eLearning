@@ -27,3 +27,4 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('website/css/style.css')}}" rel="stylesheet">
+    @yield('css')

@@ -8,6 +8,17 @@
         </ul>
     </div>
 @endif --}}
+
+    @if (session()->has('send-success'))
+        <script>
+            window.onload = function() {
+                notif({
+                    msg: "{{ trans('dashboard/message.send-success') }}",
+                    type: "success"
+                });
+            }
+        </script>
+    @endif
     @if (session()->has('add'))
         <script>
             window.onload = function() {
@@ -16,7 +27,6 @@
                     type: "success"
                 });
             }
-
         </script>
     @endif
 
@@ -28,7 +38,6 @@
                     type: "success"
                 });
             }
-
         </script>
     @endif
 
@@ -40,7 +49,6 @@
                     type: "success"
                 });
             }
-
         </script>
     @endif
 
@@ -52,6 +60,5 @@
                 type: "success"
             });
         }
-
     </script>
 @endif
