@@ -15,8 +15,13 @@ Route::group(
     ], function(){
         Route::get('/', [HomeController::class, 'index'])->name('website.index');
         Route::get('/about', [AboutController::class, 'about'])->name('website.about');
-        Route::get('/courses', [CourseController::class, 'courses'])->name('website.courses');
-        Route::get('/courses/search', [CourseController::class, 'search'])->name('website.courses.search');
+
+        Route::group(['prefix' => 'courses'], function() {
+            Route::get('/', [CourseController::class, 'courses'])->name('website.courses');
+            Route::get('/search', [CourseController::class, 'search'])->name('website.courses.search');    
+            Route::get('/{id}/details', [CourseController::class, 'details'])->name('website.course.details');
+        });
+
         Route::get('/category/{id}/courses', [CourseController::class, 'categoryCourses'])->name('website.categoryCourses');
         Route::get('/categoryCourses/{id}/search', [CourseController::class, 'categoryCoursesSearch'])->name('website.categoryCourses.search');
         Route::get('/instructors', [InstructorController::class, 'instructors'])->name('website.instructors');

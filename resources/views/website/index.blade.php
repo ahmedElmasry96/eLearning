@@ -134,9 +134,9 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="course-item bg-light">
                             <div class="position-relative overflow-hidden">
-                                <img class="img-fluid" src="{{url($course->image)}}" alt="">
+                                <img class="img-fluid" src="{{url($course->image)}}" alt="course image">
                                 <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                    <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                                    <a href="{{route('website.course.details', $course->id)}}" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 30px">Join Now</a>
                                 </div>
                             </div>
                             <div class="text-center p-4 pb-0">

@@ -26,6 +26,11 @@ class CourseController extends Controller
         }
     }
 
+    public function details($id) {
+        $course = Course::findOrFail($id);
+        return view('website.courseDetails', compact('course'));
+    }
+
     public function categoryCourses($id)
     {
         $category = Category::findOrFail($id);

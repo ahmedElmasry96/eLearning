@@ -439,4 +439,33 @@
     height: 850px !important;
 }
 
+.course .courseInfo h3 {
+    margin-bottom: 0;
+}
+
+.course .courseInfo span {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 12px;
+    color: #a76666;
+}
+
+.course .courseInfo span i {
+    margin-right: 3px;
+}
+
+.course .courseInfo h5 {
+    margin-top: 10px;
+    color: #444;
+    font-size: 22px;
+    margin-bottom: 2px;
+}
+
+.course .courseInfo p {
+    font-size: 17px;
+    color: #4e3a3a;
+}
+
+
+
 /* End Customization */
