@@ -58,7 +58,7 @@
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
                     <h1 class="mb-4">{{$about->title}}</h1>
                     <p class="mb-4">{{substr($about->description, 0, 300)}}...</p>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="{{route('website.about')}}">Read More</a>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@
                 <div class="col-lg-7 col-md-6">
                     <div class="row g-3">
                         <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
+                            <a class="position-relative d-block overflow-hidden" href="{{route('website.categoryCourses', $categories[0]->id)}}">
                                 <img class="img-fluid" src="{{url($categories[0]->image)}}" alt="Category image">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                     <h5 class="m-0">{{$categories[0]->name}}</h5>
@@ -87,7 +87,7 @@
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="">
+                            <a class="position-relative d-block overflow-hidden" href="{{route('website.categoryCourses', $categories[1]->id)}}">
                                 <img class="img-fluid" src="{{url($categories[1]->image)}}" alt="Category image">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                     <h5 class="m-0">{{$categories[1]->name}}</h5>
@@ -96,7 +96,7 @@
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="">
+                            <a class="position-relative d-block overflow-hidden" href="{{route('website.categoryCourses', $categories[2]->id)}}">
                                 <img class="img-fluid" src="{{url($categories[2]->image)}}" alt="Category image">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                     <h5 class="m-0">{{$categories[2]->name}}</h5>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="{{route('website.categoryCourses', $categories[3]->id)}}">
                         <img class="img-fluid position-absolute w-100 h-100" src="{{url($categories[3]->image)}}" alt="Category image" style="object-fit: cover;">
                         <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
                             <h5 class="m-0">{{$categories[3]->name}}</h5>

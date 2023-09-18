@@ -17,6 +17,8 @@ Route::group(
         Route::get('/about', [AboutController::class, 'about'])->name('website.about');
         Route::get('/courses', [CourseController::class, 'courses'])->name('website.courses');
         Route::get('/courses/search', [CourseController::class, 'search'])->name('website.courses.search');
+        Route::get('/category/{id}/courses', [CourseController::class, 'categoryCourses'])->name('website.categoryCourses');
+        Route::get('/categoryCourses/{id}/search', [CourseController::class, 'categoryCoursesSearch'])->name('website.categoryCourses.search');
         Route::get('/instructors', [InstructorController::class, 'instructors'])->name('website.instructors');
         Route::get('/contact', [ContactController::class, 'contact'])->name('website.contact');
         Route::post('/send-mail', [ContactController::class, 'sendMail'])->name('website.contact.sendEmail');
