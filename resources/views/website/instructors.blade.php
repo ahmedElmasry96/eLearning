@@ -36,10 +36,12 @@
                                     @if($instructor->instagram)<a class="btn btn-sm-square btn-primary mx-1" href="{{$instructor->instagram}}"><i class="fab fa-instagram"></i></a>@endif
                                 </div>
                             </div>
-                            <div class="text-center p-4">
-                                <h5 class="mb-0">{{$instructor->name}}</h5>
-                                <small>{{$instructor->title}}</small>
-                            </div>
+                            <a href="{{route('website.instructor.details', $instructor->id)}}">
+                                <div class="text-center p-4">
+                                    <h5 class="mb-0">{{$instructor->name}}</h5>
+                                    <small>{{$instructor->title}}</small>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 @endforeach

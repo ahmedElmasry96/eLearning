@@ -466,6 +466,13 @@
     color: #4e3a3a;
 }
 
+.social-icon {
+    margin-right: 8px;
+    border: 1px solid #555;
+}
 
+.instructorInfo p {
+    font-size: 15px;
+}
 
 /* End Customization */

@@ -24,7 +24,12 @@ Route::group(
 
         Route::get('/category/{id}/courses', [CourseController::class, 'categoryCourses'])->name('website.categoryCourses');
         Route::get('/categoryCourses/{id}/search', [CourseController::class, 'categoryCoursesSearch'])->name('website.categoryCourses.search');
-        Route::get('/instructors', [InstructorController::class, 'instructors'])->name('website.instructors');
+
+        Route::group(['prefix' => 'instructors'], function() {
+            Route::get('/', [InstructorController::class, 'instructors'])->name('website.instructors');
+            Route::get('/{id}/details', [InstructorController::class, 'details'])->name('website.instructor.details');
+        });
+
         Route::get('/contact', [ContactController::class, 'contact'])->name('website.contact');
         Route::post('/send-mail', [ContactController::class, 'sendMail'])->name('website.contact.sendEmail');
     });

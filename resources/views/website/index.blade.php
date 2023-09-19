@@ -165,7 +165,7 @@
     <!-- Courses End -->
 
 
-    <!-- Team Start -->
+    <!-- Instructor Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -186,16 +186,18 @@
                                     @if($instructor->instagram)<a class="btn btn-sm-square btn-primary mx-1" href="{{$instructor->instagram}}"><i class="fab fa-instagram"></i></a>@endif
                                 </div>
                             </div>
-                            <div class="text-center p-4">
-                                <h5 class="mb-0">{{$instructor->name}}</h5>
-                                <small>{{$instructor->title}}</small>
-                            </div>
+                            <a href="{{route('website.instructor.details', $instructor->id)}}">
+                                <div class="text-center p-4">
+                                    <h5 class="mb-0">{{$instructor->name}}</h5>
+                                    <small>{{$instructor->title}}</small>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
     </div>
-    <!-- Team End -->
+    <!-- Instructor End -->
 
 @endsection

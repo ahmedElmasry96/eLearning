@@ -11,6 +11,11 @@ class InstructorController extends Controller
     {
         $instructors = Instructor::all();
         return view('website.instructors', compact('instructors'));
+    }
 
+    public function details($id)
+    {
+        $instructor = Instructor::findOrFail($id);
+        return view('website.instructorDetails', compact('instructor'));
     }
 }
